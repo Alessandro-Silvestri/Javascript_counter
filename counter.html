@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      button {
+        padding: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1 id="display">0</h1>
+    <button id="add1">+</button>
+    <button id="sub1">-</button>
+    <br /><br /><br />
+    <input type="text" placeholder="add value" id="inputValue" />
+    <br /><br />
+    <button id="addValue">add value</button>
+
+    <script>
+      // vars
+      let value = 0;
+
+      // objects
+      let display = document.getElementById("display");
+      let add1 = document.getElementById("add1");
+      let sub1 = document.getElementById("sub1");
+      let inputValue = document.getElementById("inputValue");
+      let addValue = document.getElementById("addValue");
+
+      add1.addEventListener("click", () => {
+        value++;
+        display.innerHTML = value;
+      });
+
+      sub1.addEventListener("click", () => {
+        value--;
+        if (value < 0) {
+          value = 0;
+        }
+        display.innerHTML = value;
+      });
+
+      addValue.addEventListener("click", () => {
+        // check if the input is a number or not
+        if (isNaN(Number(inputValue.value))) {
+          alert("not a number");
+        } else {
+          value += Number(inputValue.value);
+          display.innerText = value;
+        }
+      });
+    </script>
+  </body>
+</html>
